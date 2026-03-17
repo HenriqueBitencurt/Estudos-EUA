@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal da Turma | Henrique Engenharia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;       /* Azul marinho profundo */
+            --card-bg: #1e293b;        /* Azul ardósia para os cards */
+            --primary-color: #38bdf8;  /* Azul celeste vibrante */
+            --accent-red: #fb7185;     /* Rosa/Vermelho para alertas */
+            --accent-yellow: #fbbf24;  /* Amarelo para atenção */
+            --text-main: #f8fafc;      /* Branco quase puro */
+            --text-dim: #94a3b8;       /* Cinza para textos secundários */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard em Grid */
+        .dashboard {
+            display: grid;
+            /* Isso aqui força 2 colunas iguais */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 25px;
+        }
+
+        /* Esse código faz com que no celular ele volte a ser 1 coluna só */
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+
+        .status-dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background: var(--primary-color);
+            color: #000;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        footer {
+            margin-top: 60px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Portal da Turma</h1>
+            <p style="font-weight: 600; color: var(--primary-color); margin-top: -10px;">Escola - Turma 2°B</p>
+            <p>Engenharia de Comunicação para Estudantes</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="card">
+                <h2><span class="status-dot" style="background-color: var(--accent-red);"></span> 📝 Provas</h2>
+                <ul>
+                    </li>Nenhuma prova marcada por enquanto
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="status-dot" style="background-color: #a855f7;"></span> 📂 Trabalhos</h2>
+                <ul>
+                    <li>
+                        <span class="date">PRAZO 23/03</span>
+                        <strong>ARTE</strong> - slide ou mapa mental sobre Incas, Maias e Astecas !deve conter imagem! !textos pequenos!
+                    </li>
+                    <li>
+                        <span class="date"></span>
+                        <strong></strong>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="status-dot" style="background-color: var(--accent-yellow);"></span> ⚡ Atividades</h2>
+                <ul>
+                    <li>
+                        <span class="date">TERÇA-FEIRA 24/03</span>
+                        <strong>SOCIOLOGIA</strong> - Atividade da 1 a 4 passada na TV
+                    </li>
+                    <li>
+                        <span class="date">SEGUNDA-FEIRA 23/03</span>
+                        <strong>LM</strong> - Texto explicação valendo visto
+                        </li> 
+                        <li>
+                        <span class="date">QUINTA-FEIRA 19/03</span>
+                        <strong>QUIMICA</strong> - apostila pág 16 e 17 questões 5,6,7
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2><span class="status-dot" style="background-color: var(--primary-color);"></span> 🔗 Acesso Rápido</h2>
+                
+                <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 5px;">Link direto para a sala virtual:</p>
+                <a href="https://classroom.google.com/u/1/c/NzkyOTk3OTE3NDkw" target="_blank" class="btn">Abrir Google Classroom</a>
+                
+                <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                    <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 10px;">📅 Horário resumido:</p>
+                    <table style="width: 100%; font-size: 0.85rem; color: var(--text-main); border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 5px 0;">SEG</td>
+                            <td style="text-align: right; color: var(--text-dim);">LM | LP | FIS | HIST | MAT | AP ARTE|</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 5px 0;">TER</td>
+                            <td style="text-align: right; color: var(--text-dim);">IN | GEO | ALI | MAT | SOCIO | LP|</td>
+                        </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="padding: 5px 0; color: var(--primary-color); font-weight: bold;">QUA</td>
+        <td style="text-align: right; color: var(--text-dim);">IN | FIS | MAT | ARTE | GEO | FILO|</td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="padding: 5px 0; color: var(--primary-color); font-weight: bold;">QUI</td>
+        <td style="text-align: right; color: var(--text-dim);">AP PORT | BIO | HIST | LP | MAT | QUIM|</td>
+    </tr>
+    <tr>
+        <td style="padding: 5px 0; color: var(--primary-color); font-weight: bold;">SEX</td>
+        <td style="text-align: right; color: var(--text-dim);"> EF  | QUIM | AP PORT | BIO | LP|</td>
+    </tr>
+                        </table>
+                </div>
+            </div>
+
+        <footer>
+            Desenvolvido por Henrique Engenheiro • 2026
+        </footer>
+    </div>
+<a href="https://wa.me/5565984240958?text=Oi%20Henrique,%20tenho%20uma%20atualização%20pro%20site%20da%20turma!" 
+   target="_blank" 
+   style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; border-radius: 50px; padding: 15px 25px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; gap: 10px;">
+   <span>📲 Avisar o Henrique</span>
+</a>
+</body>
+</html>
