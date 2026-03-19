@@ -178,4 +178,88 @@ footer {
     display: flex; 
     align-items: center; 
     gap: 10px;
+} 
+.anime-mascote {
+    position: fixed;
+    bottom: 100px;  /* Altura ideal para ficar acima do botão do Whats */
+    right: 30px;    /* Lado direito, alinhado com o botão */
+    left: auto;     /* Isso limpa o "left" antigo que estava na esquerda */
+    z-index: 1000;
+    width: 250px;   /* Tamanho da Rem no notebook */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Ajuste do balão para não sair da tela na direita */
+.balao-fala {
+    position: absolute;
+    top: -50px;
+    right: 10px;    /* Alinha o balão com o lado direito */
+    background: var(--primary-color);
+    color: #000;
+    padding: 8px 15px;
+    border-radius: 15px 15px 0 15px; /* Pontinha do balão para baixo */
+    font-size: 0.85rem;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.anime-mascote img {
+    width: 100%;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4)); /* Brilho azul combinando com o site */
+}
+
+/* Mostra o balão quando passa o mouse na Rem */
+.anime-mascote:hover .balao-fala {
+    opacity: 1;
+}
+
+.anime-mascote:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .anime-mascote {
+        display: block;
+        width: 75px;    
+        left: 10px;      /* Rem no lado esquerdo do celular */
+        right: auto;     /* Anula o right para não dar bug */
+        bottom: 10px;    /* Altura boa para não cobrir nada */
+    }
+
+    .balao-fala {
+        display: block;
+        opacity: 1;
+        top: -15px;
+        left: 5px;       /* O balão agora "nasce" da esquerda... */
+        right: auto;     /* ...e cresce para a DIREITA */
+        font-size: 0.65rem;
+        padding: 5px 10px;
+        background: var(--primary-color);
+        color: #000;
+        border-radius: 15px 15px 15px 0; /* Pontinha do balão no canto inferior esquerdo */
+        white-space: nowrap; /* Tenta manter em uma linha se a frase for curta */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+}
+/* Definição da animação de flutuar */
+@keyframes flutuar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); } /* Sobe 10 pixels */
+    100% { transform: translateY(0px); }
+}
+
+/* Aplicando a animação na Rem */
+.anime-mascote {
+    /* ... mantenha o que já tem e adicione estas linhas abaixo: */
+    animation: flutuar 3s ease-in-out infinite; /* 3 segundos para subir e descer, para sempre */
+}
+
+/* Efeito de destaque quando passa o mouse */
+.anime-mascote:hover {
+    transform: scale(1.1); /* Ela aumenta 10% de tamanho */
+    filter: drop-shadow(0 0 15px var(--primary-color)); /* Brilha na cor do seu tema */
 }
